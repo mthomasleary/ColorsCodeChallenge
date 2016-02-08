@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="colorsStyle.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+        <script src="js/colorsApp.js"></script>
+
+        <title>Characters Colors Code Challenge!</title>
+    </head>
+
+    <body ng-app="colorsApp">
+        <div class="welcomebanner">Welcome to the Matthew Leary Code Challenge!</div>
+        <div class="applicationContainer" ng-controller="colorsCtrl">
+            <div class="inputblock">
+                <!-- Main input block -->
+                <div>
+                    Please enter a string:
+                </div>
+                <form>
+                    <input type="text" ng-model="characters">
+                    <button class="btn-primary" ng-click="submitChars()">get colors</button>
+                    <button class="btn-primary" ng-click="getUsage()">get usage</button>
+                </form>
+
+                <!-- only show if this is what the user asked for-->
+                <div ng-hide="!usage">
+                    Usage of {{submitted}} is: {{usage}}
+                </div>
+
+                <!-- only show if this is what the user asked for-->
+                <div ng-hide="!squares.length">
+                    As colors:
+                </div>
+                <div ng-repeat="square in squares">
+                    <color-square/>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
